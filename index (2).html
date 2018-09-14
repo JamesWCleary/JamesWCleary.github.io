@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>ReCaptcha Test</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
+
+    <style>
+    .center-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+}
+    </style>
+</head>
+
+<body>
+    <div class="center-screen">
+    <div>
+        <div>
+            <div id="recaptcha" style="width:100%">
+                    <div class="recaptcha"> <!--this div was sourced from the google recpactcha-->
+                        
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>  <!-- once we register the data sitekey with google we will put our key in here--> 
+                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                       
+
+
+                        <input type="submit" class="btn btn-success btn-send" value="GO"> <!-- button-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
+    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
+</body>
+
+</html>
