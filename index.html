@@ -14,10 +14,18 @@
             min-height: 100vh;
 }
     </style>
+
+    <script>
+        function show(shown, hidden) {
+          document.getElementById(shown).style.display='block';
+          document.getElementById(hidden).style.display='none';
+          return false;
+        }
+        </script>
 </head>
 
 <body>
-    <div class="center-screen">
+    <div class="center-screen" id="Page1">
     <div>
         <div>
             <div id="recaptcha" style="width:100%">
@@ -31,13 +39,18 @@
                        
 
 		
-						<form action="Captcha Site Success.html"> <!--Redirect to the success page-->
+						<form onclick="return show('Page2','Page1');"> <!--Redirect to the success page-->
 							<input type="submit" class="btn btn-success btn-send" value="GO"> <!-- button-->
 						</form>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div id="Page2" class="center-screen">
+        <h1>page 2</h1>
+        Content of page 2
+        <a href="#" onclick="return show('Page1','Page2');">Show page 1</a>
 </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
