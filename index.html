@@ -40,7 +40,7 @@
 
 		
 						<form action="Captcha Site Success.html"> <!--Redirect to the success page-->
-							<input type="submit" disabled= "disabled" class="btn btn-success btn-send" value="GO"> <!-- button-->
+							<input type="submit" class="btn btn-success btn-send" value="GO" onclick="return CallValidation();"> <!-- button-->
 						</form>
                 </div>
             </div>
@@ -51,9 +51,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
 <script type="text/javascript">
-	function verifyRecaptchaCallback() {
-	$('submit').removeAttr('disabled');
-	};
+	function callvalidation() {
+		if (grecaptcha.getresponse().length == 0){
+			return false
+		}
+		else{
+			return true
+		}
  </script>
 </body>
 
