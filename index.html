@@ -25,13 +25,9 @@
 	
 </head>
 
-<body>    
-	<script>
-		document.getElementById("myBtn").disabled = true;
-		let response = grecaptcha.getResponse();
-		console.log(grecaptcha.getResponse())
-    </script>
-    <div class="center-screen">
+<body>
+   
+    <div class="center-screen"> 
     <div>
         <div>
             <div id="recaptcha" style="width:100%">
@@ -63,6 +59,11 @@
     </div>
 </div>
 </div>
+    <script>
+		document.getElementById("myBtn").disabled = true;
+		let response = grecaptcha.getResponse();
+		console.log(grecaptcha.getResponse())
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
 </body>
