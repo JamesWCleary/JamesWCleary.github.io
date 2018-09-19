@@ -61,9 +61,8 @@
 </div>
     <script>
 		document.getElementById("myBtn").disabled = true;
-	    	console.log('g-recaptcha-response')
-		let response = document.getElementsByClassName("g-recaptcha-response")[0].getResponse();
-		console.log(document.getElementsByClassName("g-recaptcha-response")[0].getResponse())
+	    	console.log('g-recaptcha-response');
+		grecaptcha.getResponse(opt_widget_id);
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
