@@ -1,72 +1,22 @@
 <html>
-
-<head>
-    <title>ReCaptcha Test</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
-
-    <style>
-    .center-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-}
-    </style>
-
-    <script>
-        function show(shown, hidden) {
-          document.getElementById(shown).style.display='block';
-          document.getElementById(hidden).style.display='none';
-          return false;
-        }
-        </script>
-	
-</head>
-
-<body>
-   
-    <div class="center-screen"> 
-    <div>
-        <div>
-            <div id="recaptcha" style="width:100%">
-                    <div class="recaptcha"> <!--this div was sourced from the google recpactcha-->
-                        <div class="form-group" >
-			    <form action="?" method="POST"></form>
-                            <div class="g-recaptcha" data-sitekey="6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>  <!-- once we register the data sitekey with google we will put our key in here--> 
-                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                     	<script>
-						function disabler(){
-							if(response.length == 0){
-								document.getElementById("myBtn").disabled = true;
-							}
-
-							else{
-								document.getElementById("myBtn").disabled = false;
-							}
-						}
-						</script>
-		
-						<form action="Captcha_Site_Success.html"> <!--Redirect to the success page-->
-							<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button-->
-						</form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-	
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
-    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
-</div>
-    <script>
-		document.getElementById("myBtn").disabled = true;
-	    	console.log('g-recaptcha-response');
-		grecaptcha.getResponse(opt_widget_id)
+  <head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK'
+        });
+      };
     </script>
-</body>
-
+  </head>
+  <body>
+    <form action="?" method="POST">
+      <div id="html_element"></div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
 </html>
