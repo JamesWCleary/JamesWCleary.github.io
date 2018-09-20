@@ -1,58 +1,60 @@
 
 <html>
- <head>
-    <title>ReCaptcha Test</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
-     <style>
-    .center-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-}
-    </style>
-     <script>
-        function show(shown, hidden) {
-          document.getElementById(shown).style.display='block';
-          document.getElementById(hidden).style.display='none';
-          return false;
-        }
-        </script>
-	<script type="text/javascript">
-		var onloadcallback = function(){
-			grecaptcha.render('captcha', {
-				'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
-				'callback' : verifycallback,
-				'theme' : 'light'
-			});
-		};
-	</script>
-</head>
- <body>
-   
-    <div class="center-screen"> 
-    <div>
-        <div>
-            <div id="recaptcha" style="width:100%">
-                    <div class="recaptcha"> <!--this div was sourced from the google recpactcha-->
-                        <div class="form-group" >
-			    <form action="?" method="POST"></form> 
-                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
-                            <div class="help-block with-errors"></div>
-                        </div>
-		 
+	<head>
+		<title>ReCaptcha Test</title>
+		
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
+		<style>
+			
+			.center-screen {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				min-height: 100vh;
+			}
+			</style>
+		
+			<script>
+				function show(shown, hidden) {
+				document.getElementById(shown).style.display='block';
+				document.getElementById(hidden).style.display='none';
+				return false;
+			}
+			</script>
+		
+			<script type="text/javascript">
+				var onloadcallback = function(){
+					grecaptcha.render('captcha', {
+					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
+					'callback' : verifycallback,
+					'theme' : 'light'
+				});
+			};
+			</script>
+	</head>
+<body>
+
+	<div class="center-screen"> 
+		<div id="recaptcha" style="width:100%">
+			<div class="recaptcha"> <!--this div was sourced from the google recpactcha-->
+				<div class="form-group" >
+					<form action="?" method="POST">
+					<div id="captcha"></div>
+					</form>
+						<div class="help-block with-errors"></div>
+						</div>
+
 						<form action="Captcha_Site_Success.html"> <!--Redirect to the success page-->
-							<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button-->
+						<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button-->
 						</form>
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
+<script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
 </div>
-	
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
-    <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
-</div>
-  </body>
+</body>
