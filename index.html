@@ -24,10 +24,6 @@
 			}
 		</script>
 		
-		<script>
-			document.getElementById("myBtn").disabled = true;
-		</script>
-		
 		<script type="text/javascript">
 			var verifyCallback = function() {
 				if (grecaptcha.getResponse(widgetID1) == 0) {
@@ -39,6 +35,7 @@
 			};
 			var widgetID1;
 			var onloadCallback = function() {
+				document.getElementById("myBtn").disabled = true;
 				widgetID1 = grecaptcha.render('captcha', {
 					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
 					'theme' : 'light'
