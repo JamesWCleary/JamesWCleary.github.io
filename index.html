@@ -24,29 +24,26 @@
 			}
 		</script>
 		
-		<script type="text/javascript">
-			var verifyCallback = function(response) {
-				alert(response);
-			};
-			var widgetID1;
-			var onloadCallback = function() {
-				widgetID1 = grecaptcha.render('captcha', {
-					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
-					'callback' : "verifycallback"
-					'theme' : 'light'
-				});
-			};
-		</script>
-		<script type="text/javascript">
+		<script>
 			document.getElementById("myBtn").disabled = true;
-			function verifycallback() {
+		</script>
+		
+		<script type="text/javascript">
+			var verifyCallback = function() {
 				if (grecaptcha.getResponse(widgetID1) == 0) {
 					document.getElementById("myBtn").disabled = true;
 				}
 				else {
 					document.getElementById("myBtn").disabled = false;
 				}
-			}
+			};
+			var widgetID1;
+			var onloadCallback = function() {
+				widgetID1 = grecaptcha.render('captcha', {
+					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
+					'theme' : 'light'
+				});
+			};
 		</script>
 	</head>
 <body>
