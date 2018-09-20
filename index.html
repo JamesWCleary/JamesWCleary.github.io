@@ -20,7 +20,14 @@
           return false;
         }
         </script>
-	
+	<script type="text/javascript">
+		var onloadcallback = function(){
+			grecaptcha.render('captcha', {
+				'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
+				'callback' : verifycallback,
+				'theme' : 'light'
+			});
+		});
 </head>
  <body>
    
@@ -35,17 +42,7 @@
                             <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                             <div class="help-block with-errors"></div>
                         </div>
-                     	<script>
-						function disabler(){
-							if(response.length == 0){
-								document.getElementById("myBtn").disabled = true;
-							}
- 							else{
-								document.getElementById("myBtn").disabled = false;
-							}
-						}
-						</script>
-		
+		 
 						<form action="Captcha_Site_Success.html"> <!--Redirect to the success page-->
 							<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button-->
 						</form>
@@ -58,9 +55,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- this is a basic bootstrap link -->
     <script src='https://www.google.com/recaptcha/api.js'></script> <!-- This is wheer the code imports the API-->
 </div>
-    <script>
-		document.getElementById("myBtn").disabled = true;
-	    	console.log('g-recaptcha-response');
-		grecaptcha.getResponse(opt_widget_id);
-  </script>
   </body>
