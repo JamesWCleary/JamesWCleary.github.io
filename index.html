@@ -32,12 +32,14 @@
 			var onloadCallback = function() {
 				widgetID1 = grecaptcha.render('captcha', {
 					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
+					'callback' : "verifycallback"
 					'theme' : 'light'
 				});
 			};
 		</script>
 		<script type="text/javascript">
-			function disabler() {
+			document.getElementById("myBtn").disabled = true;
+			function verifycallback() {
 				if (grecaptcha.getResponse(widgetID1) == 0) {
 					document.getElementById("myBtn").disabled = true;
 				}
@@ -53,7 +55,7 @@
 		<form action= "javascript:alert(grecaptcha.getResponse(widgetID1))">
 			<div id="captcha"></div>
 			<br>
-			<input type="submit" value="Get Response" onclick="disabler()">
+			<input type="submit" value="Get Response">
 		</form>
 		<form action="Captcha_Site_Success.html"> <!--Redirect to the success page-->
 		<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button-->
