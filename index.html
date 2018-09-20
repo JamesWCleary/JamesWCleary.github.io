@@ -42,6 +42,14 @@
 	<div class="center-screen">
 		<form action= "javascript:alert(grecaptcha.getResponse(widgetID1))">
 			<div id="captcha"></div>
+			<script type="text/javascript">
+				if (grecaptcha.getResponse(widgetID1) == 0) {
+					document.getElementById("myBtn").disabled = true;
+				}
+				else {
+					document.getElementById("myBtn").disabled = false;
+				}
+			</script>
 			<br>
 			<input type="submit" value="getResponse">
 		</form>
