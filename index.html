@@ -5,7 +5,7 @@
 		
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
 		
-		<style> <!--Define .center-screen as the center of the webpage-->
+		<style>
 			.center-screen {
 				display: flex;
 				flex-direction: column;
@@ -24,7 +24,7 @@
 			}
 		</script>
 		
-		<script type="text/javascript"> //Once the captcha is completed it will call this function, if the capthca has been completed getresponse will be greater than 0 and will enable the button, otherwise the button will be disabled
+		<script type="text/javascript">
 			var verifyCallback = function() {
 				if (grecaptcha.getResponse(widgetID1) == 0) {
 					document.getElementById("myBtn").disabled = true;
@@ -33,8 +33,8 @@
 					document.getElementById("myBtn").disabled = false;
 				}
 			};
-			var widgetID1; //Define the captcha's ID as widget ID1
-			var onloadCallback = function() { //upon loading the captchait is rendered with the light theme and disables the continue button
+			var widgetID1;
+			var onloadCallback = function() {
 				document.getElementById("myBtn").disabled = true;
 				widgetID1 = grecaptcha.render('captcha', {
 					'sitekey' : '6LeKNXAUAAAAAGdP2aEwOYgQlXWuX389GHQa2vpK',
@@ -46,13 +46,13 @@
 	</head>
 <body>
 	
-	<div class="center-screen"> <!--Load the captcha in the centre of the screen-->
+	<div class="center-screen">
 		<form action= "javascript:alert(grecaptcha.getResponse(widgetID1))">
 			<div id="captcha"></div>
 			<br>
 		</form>
-		<form action="Captcha_Site_Success.html"> <!--Redirect to the success page-->
-		<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn"> <!-- button that redirects to the success page-->
+		<form action="Captcha_Site_Success.html">
+		<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn">
 		</form>
 	</div>
 	
