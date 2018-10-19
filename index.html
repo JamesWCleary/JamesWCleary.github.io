@@ -5,6 +5,7 @@
 		
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> <!--basic bootstrap link-->
 		
+		<!--Define .centre-screen as the centre of the page-->
 		<style>
 			.center-screen {
 				display: flex;
@@ -25,6 +26,7 @@
 		</script>
 		
 		<script type="text/javascript">
+			//Once called check that the length of getresponse is greater than 0 (if the captcha has been completed it will be) and if so enable the button, otherwise disable it
 			var verifyCallback = function() {
 				if (grecaptcha.getResponse(widgetID1) == 0) {
 					document.getElementById("myBtn").disabled = true;
@@ -34,6 +36,7 @@
 				}
 			};
 			var widgetID1;
+			//Upon loading the captcha define that it should call onLoadCallback once completed, define its ID as widgetID 1 and disable the button
 			var onloadCallback = function() {
 				document.getElementById("myBtn").disabled = true;
 				widgetID1 = grecaptcha.render('captcha', {
@@ -46,11 +49,13 @@
 	</head>
 <body>
 	
+	<!--Load the captcha in the centre of the screen-->
 	<div class="center-screen">
 		<form action= "javascript:alert(grecaptcha.getResponse(widgetID1))">
 			<div id="captcha"></div>
 			<br>
 		</form>
+		<!--Load the button that redirects to the success page in the centre of the screen-->
 		<form action="Captcha_Site_Success.html">
 		<input type="submit" class="btn btn-success btn-send" value="GO" id="myBtn">
 		</form>
